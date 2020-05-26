@@ -19,15 +19,17 @@ class MovieController extends MainController
 
     public function show(Request $request, $id)
     {
-        $movieDetails = Movies::where('id', $id)->first();
+        $movieDetails = Movies::find($id);
         $movieDetails = empty($movieDetails) ? [] : $movieDetails;
         return $this->_sendResponse(true, 200, $movieDetails);
     }
 
     public function destroy(Request $request, $id)
     {
-
-        dd($id);
+        if (Movies::destroy($id))
+            return $this->_sendResponse(true, 200, ['Movie Delete success']);
+        else
+            return $this->_sendResponse(false, 200, ['Error In Delete Movie.']);
     }
 
     public function new(Request $request)

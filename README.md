@@ -11,6 +11,7 @@ This project was executed by the duo of :
 ## Used Tools
 
 -   Laravel
+-   Passport Package
 -   MarkDown Syntax
 
 ## Done Work
@@ -61,6 +62,11 @@ php artisan migrate
 php artisan serve
 ```
 
+## Important Note
+
+PostMan Should Set Accept header with application/json
+![example](./public/images/accept_applicationjson.png)
+
 ## PostMan Collection
 
 You Will Find link for PostMan Collection [Here](https://www.getpostman.com/collections/d388f6dc3311c7063376)
@@ -71,5 +77,25 @@ Live version [TBA].
 
 ## ScreenShots
 
-![list books](./dist/imgs/Weather_scrren1.png)
-![list books](./dist/imgs/Weather_screen2.png)
+### Register
+
+![example](./public/images/registeration.png)
+
+### unauthorized response in wrong token
+
+![example](./public/images/unauthorized.png)
+
+### Add New Movie
+
+![example](./public/images/add-movi.png)
+
+### List Movies
+
+![example](./public/images/list-movies.png)
+
+### Get Movie Details
+
+![example](./public/images/get-movie-details.png)
+
+### Delete Movie 
+![example](./public/images/delete_movie.png)

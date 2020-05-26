@@ -24,6 +24,6 @@ Route::get('/movie', 'MovieController@index');
 
 Route::middleware('auth:api')->group(function () {
     Route::get('/movie/{id}', 'MovieController@show');
-    Route::delete('/movie', 'MovieController@destroy');
+    Route::get('/delete-movie/{id}', 'MovieController@destroy');
     Route::post('/movie', 'MovieController@new');
 });
