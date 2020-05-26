@@ -14,11 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
+Route::post('login', 'PassportController@login');
+Route::post('register', 'PassportController@register');
 Route::get('/movie', 'MovieController@index');
-Route::get('/movie/{id}', 'MovieController@show');
-Route::delete('/movie', 'MovieController@destroy');
-Route::post('/movie', 'MovieController@new');
+
+Route::middleware('auth:api')->group(function () {
+    Route::get('/movie/{id}', 'MovieController@show');
+    Route::delete('/movie', 'MovieController@destroy');
+    Route::post('/movie', 'MovieController@new');
+});
