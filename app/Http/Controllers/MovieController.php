@@ -14,6 +14,7 @@ class MovieController extends MainController
      * index
      * 
      * List Movies 
+     * 
      * @return \Illuminate\Http\JsonResponse
      */
 
@@ -26,9 +27,8 @@ class MovieController extends MainController
     /**
      * show
      * 
-     * show Movie Details
+     * Show Movie Details
      * 
-     * @param Request $request  
      * @param Integer $id movie ID
      *        
      * @return \Illuminate\Http\JsonResponse
@@ -44,12 +44,12 @@ class MovieController extends MainController
     /**
      * destroy
      * 
-     * destroy Movie
+     * API to Remove Movie
      * 
-     * @param Request $request  
      * @param Integer $id movie ID
      *        
      * @return \Illuminate\Http\JsonResponse
+     * 
      */
 
     public function destroy(Request $request, $id)
