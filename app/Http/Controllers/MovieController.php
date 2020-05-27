@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\MainController;
+use App\Http\Requests\MovieStoreRequest;
 use App\Movies;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
-
 
 class MovieController extends MainController
 {
@@ -76,23 +75,9 @@ class MovieController extends MainController
      */
 
 
-    public function new(Request $request)
+    public function new(MovieStoreRequest $request)
     {
-
-        $validator =  Validator::make($request->all(), [
-            'name' => 'required|min:3|max:200',
-            'slug' => 'required|min:3|max:150',
-            'description' => 'required|min:3|max:250',
-            'release_date' => 'required|digits_between:4,4',
-            'country_code' => 'required|max:2',
-
-        ]);
-
-        if ($validator->fails())
-            return $this->_sendResponse(false, 200, $validator->errors()->all());
-        else {
-            Movies::create($request->all());
-            return $this->_sendResponse(true, 200, ['Movie Added Success .']);
-        }
+        Movies::create($request->all());
+        return $this->_sendResponse(true, 200, ['Movie Added Success .']);
     }
 }
